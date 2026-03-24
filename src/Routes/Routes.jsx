@@ -5,18 +5,19 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import PublicLayout from "../layouts/PublicLayout";
-import Waitlist from "../pages/Public/waitlist";
+import Waitlist from "../pages/Public/Waitlist";
 
 
-export const router = createBrowserRouter([
+export const    router = createBrowserRouter([
+   {
+    path: "/",
+    element: <Navigate to="/waitlist" replace />,
+  },
   {
     path: "/",
     element: <AuthLayout />,
     children: [
-      {
-        index: true,
-        element: <Navigate to="/login" replace />,
-      },
+      
       {
         path: "login",
         element: <Login />,
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
 
   {
     path: "*",
-    element: <Navigate to="/login" replace />,
+    element: <Navigate to="/waitlist" replace />
   }
 ]);
 
